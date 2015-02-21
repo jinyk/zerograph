@@ -8,5 +8,8 @@ the image to a zero-base y-axis graph.
 
 At this point, thanks to 
 [Paul Sholtz](http://www.raywenderlich.com/59602/make-augmented-reality-target-shooter-game-opencv-part-1) 
-and the OpenCV CocoaPod, I got the camera output to an UIImage view and OpenCV processing the image to look
-for patterns.
+and the OpenCV CocoaPod, I got the camera outputting in real-time to an
+UIImageView and OpenCV continuously processing the image to look for edges
+and drawing out an overlay image of the detected edges.
+
+![alt tag](https://raw.github.com/jinyk/zerograph/master/screencap.png)
