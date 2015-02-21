@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hxc-mc-OD3">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Hxc-mc-OD3" secondAttribute="height" multiplier="4:3" id="Kwj-9q-AgK"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Kwj-9q-AgK"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="Kwj-9q-AgK"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HPG-A9-rWX">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="khl-ol-fEb"/>
+                                    <constraint firstAttribute="width" constant="195" id="lqX-el-NJ0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="khl-ol-fEb"/>
+                                        <exclude reference="lqX-el-NJ0"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="khl-ol-fEb"/>
+                                        <include reference="lqX-el-NJ0"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="HPG-A9-rWX" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="HKS-JW-f3H"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="HPG-A9-rWX" secondAttribute="bottom" constant="20" id="cZL-B1-H3f"/>
+                            <constraint firstAttribute="centerY" secondItem="Hxc-mc-OD3" secondAttribute="centerY" id="cfn-gz-u3E"/>
+                            <constraint firstItem="Hxc-mc-OD3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="rXQ-o6-OxJ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Hxc-mc-OD3" secondAttribute="bottom" id="sIY-pf-GKp"/>
+                            <constraint firstItem="Hxc-mc-OD3" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="vaN-LW-987"/>
+                            <constraint firstAttribute="trailing" secondItem="Hxc-mc-OD3" secondAttribute="trailing" id="xaA-tX-Of1"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="HPG-A9-rWX"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="cfn-gz-u3E"/>
+                                <exclude reference="cZL-B1-H3f"/>
+                                <exclude reference="HKS-JW-f3H"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=regular">
+                            <mask key="subviews">
+                                <include reference="HPG-A9-rWX"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="cfn-gz-u3E"/>
+                                <exclude reference="vaN-LW-987"/>
+                                <include reference="cZL-B1-H3f"/>
+                                <exclude reference="sIY-pf-GKp"/>
+                                <include reference="HKS-JW-f3H"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundImageView" destination="Hxc-mc-OD3" id="XSK-sD-pS6"/>
+                        <outlet property="matchValueLabel" destination="HPG-A9-rWX" id="4mE-gi-I1d"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
