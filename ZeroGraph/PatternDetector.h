@@ -25,6 +25,7 @@ public:
     // (4) Tracking API
     bool isTracking();
 
+    const cv::Mat& edgeImage();
 private:
     // (5) Reference Marker Images
     cv::Mat m_patternImage;
@@ -38,4 +39,5 @@ private:
     float m_matchThresholdValue;
     float m_scaleFactor;
 
+    cv::Mat m_edgeImage;
 };

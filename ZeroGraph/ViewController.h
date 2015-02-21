@@ -12,6 +12,7 @@
 @interface ViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *edgeImageView;
 @property (weak, nonatomic) IBOutlet UILabel *matchValueLabel;
 
 

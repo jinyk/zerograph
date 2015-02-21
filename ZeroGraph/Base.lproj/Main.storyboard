@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -18,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hxc-mc-OD3">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hxc-mc-OD3" userLabel="Background Image View">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Hxc-mc-OD3" secondAttribute="height" multiplier="4:3" id="Kwj-9q-AgK"/>
@@ -31,6 +32,22 @@
                                 <variation key="heightClass=compact-widthClass=regular">
                                     <mask key="constraints">
                                         <include reference="Kwj-9q-AgK"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.49999999999999961" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2GP-7X-uvc" userLabel="Edge Image View">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="2GP-7X-uvc" secondAttribute="height" multiplier="4:3" id="6je-O2-vWT"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="6je-O2-vWT"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="6je-O2-vWT"/>
                                     </mask>
                                 </variation>
                             </imageView>
@@ -60,8 +77,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="HPG-A9-rWX" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="HKS-JW-f3H"/>
+                            <constraint firstAttribute="trailing" secondItem="2GP-7X-uvc" secondAttribute="trailing" id="L0f-Qt-KDc"/>
+                            <constraint firstItem="2GP-7X-uvc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="NiF-bW-jXA"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="HPG-A9-rWX" secondAttribute="bottom" constant="20" id="cZL-B1-H3f"/>
                             <constraint firstAttribute="centerY" secondItem="Hxc-mc-OD3" secondAttribute="centerY" id="cfn-gz-u3E"/>
+                            <constraint firstAttribute="centerY" secondItem="2GP-7X-uvc" secondAttribute="centerY" id="cmB-IB-gl8"/>
                             <constraint firstItem="Hxc-mc-OD3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="rXQ-o6-OxJ"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Hxc-mc-OD3" secondAttribute="bottom" id="sIY-pf-GKp"/>
                             <constraint firstItem="Hxc-mc-OD3" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="vaN-LW-987"/>
@@ -69,21 +89,29 @@
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
+                                <exclude reference="2GP-7X-uvc"/>
                                 <exclude reference="HPG-A9-rWX"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="cfn-gz-u3E"/>
+                                <exclude reference="L0f-Qt-KDc"/>
+                                <exclude reference="NiF-bW-jXA"/>
+                                <exclude reference="cmB-IB-gl8"/>
                                 <exclude reference="cZL-B1-H3f"/>
                                 <exclude reference="HKS-JW-f3H"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact-widthClass=regular">
                             <mask key="subviews">
+                                <include reference="2GP-7X-uvc"/>
                                 <include reference="HPG-A9-rWX"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="cfn-gz-u3E"/>
                                 <exclude reference="vaN-LW-987"/>
+                                <include reference="L0f-Qt-KDc"/>
+                                <include reference="NiF-bW-jXA"/>
+                                <include reference="cmB-IB-gl8"/>
                                 <include reference="cZL-B1-H3f"/>
                                 <exclude reference="sIY-pf-GKp"/>
                                 <include reference="HKS-JW-f3H"/>
@@ -92,6 +120,7 @@
                     </view>
                     <connections>
                         <outlet property="backgroundImageView" destination="Hxc-mc-OD3" id="XSK-sD-pS6"/>
+                        <outlet property="edgeImageView" destination="2GP-7X-uvc" id="ngY-YJ-Lyz"/>
                         <outlet property="matchValueLabel" destination="HPG-A9-rWX" id="4mE-gi-I1d"/>
                     </connections>
                 </viewController>

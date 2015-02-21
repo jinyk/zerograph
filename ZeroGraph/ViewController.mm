@@ -33,7 +33,7 @@
     UIImage *trackerImage = [UIImage imageNamed:@"target"];
     self.m_detector = new PatternDetector([trackerImage toCVMat]);
 
-    self.m_trackingTimer = [NSTimer scheduledTimerWithTimeInterval:(1.0f/20.0f)
+    self.m_trackingTimer = [NSTimer scheduledTimerWithTimeInterval:1.0f
                                                             target:self
                                                           selector:@selector(updateTracking:)
                                                           userInfo:nil
@@ -73,12 +73,14 @@
 #pragma mark - Private
 
 - (void)updateTracking:(NSTimer *)timer {
+    self.edgeImageView.image = [UIImage fromCVMat:self.m_detector->edgeImage()];
     self.matchValueLabel.text = [NSString stringWithFormat:@"match value: %f", self.m_detector->matchValue()];
     if (self.m_detector->isTracking()) {
         self.matchValueLabel.textColor = [UIColor redColor];
     } else {
         self.matchValueLabel.textColor = [UIColor yellowColor];
     }
+    
 }
 
 @end

@@ -61,6 +61,9 @@ void PatternDetector::scanFrame(VideoFrame frame) {
     cv::Mat resultImage = cv::Mat(cols, rows, CV_32FC1);
     cv::matchTemplate(queryImageGrayScale, m_patternImageGrayScaled, resultImage, m_matchMethod);
 
+    m_edgeImage = cv::Mat(cols, rows, CV_32FC1);
+    cv::Canny(queryImage, m_edgeImage, 10, 50);
+
     // (4) Find the min/max settings
     double minVal, maxVal;
     cv::Point minLoc, maxLoc;
@@ -98,4 +101,8 @@ bool PatternDetector::isTracking() {
         default:
             return m_matchValue > m_matchThresholdValue;
     }
+}
+
+const cv::Mat& PatternDetector::edgeImage() {
+    return m_edgeImage;
 }
