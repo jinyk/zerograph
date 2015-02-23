@@ -7,21 +7,19 @@
 //
 
 #import <AVFoundation/AVFoundation.h>
+#import <UIKit/UIKit.h>
 #import "VideoFrame.h"
 
 @protocol VideoSourceDelegate <NSObject>
 
 @required
-- (void)frameReady:(VideoFrame)frame;
+
+- (void)captureReady:(UIImage *)image andFrame:(VideoFrame)frame;
 
 @end
 
 @interface VideoSource : NSObject
 
-@property (nonatomic, strong) AVCaptureSession *captureSession;
-@property (nonatomic, strong) AVCaptureDeviceInput *deviceInput;
-@property (nonatomic, weak) id<VideoSourceDelegate> delegate;
-
-- (BOOL)startWithDevicePosition:(AVCaptureDevicePosition)devicePosition;
+- (instancetype)initWithDelegate:(id<VideoSourceDelegate>)delegate;
 
 @end

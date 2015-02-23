@@ -11,7 +11,7 @@
 		9B477ED81A981A16009C9ADD /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B477ED71A981A16009C9ADD /* AudioToolbox.framework */; };
 		9B477EDD1A981C2C009C9ADD /* VideoSource.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9B477EDC1A981C2C009C9ADD /* VideoSource.mm */; };
 		9B477EE21A982EC9009C9ADD /* UIImage+OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9B477EDE1A982EC9009C9ADD /* UIImage+OpenCV.mm */; };
-		9B477EE31A982EC9009C9ADD /* PatternDetector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B477EE11A982EC9009C9ADD /* PatternDetector.cpp */; };
+		9B477EE31A982EC9009C9ADD /* ObjectDetector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B477EE11A982EC9009C9ADD /* ObjectDetector.cpp */; };
 		9BCB02801A9149C200325218 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB027F1A9149C200325218 /* main.m */; };
 		9BCB02831A9149C200325218 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB02821A9149C200325218 /* AppDelegate.m */; };
 		9BCB02861A9149C200325218 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB02851A9149C200325218 /* ViewController.mm */; };
@@ -40,8 +40,8 @@
 		9B477EDC1A981C2C009C9ADD /* VideoSource.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = VideoSource.mm; sourceTree = "<group>"; };
 		9B477EDE1A982EC9009C9ADD /* UIImage+OpenCV.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIImage+OpenCV.mm"; sourceTree = "<group>"; };
 		9B477EDF1A982EC9009C9ADD /* UIImage+OpenCV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+OpenCV.h"; sourceTree = "<group>"; };
-		9B477EE01A982EC9009C9ADD /* PatternDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatternDetector.h; sourceTree = "<group>"; };
-		9B477EE11A982EC9009C9ADD /* PatternDetector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PatternDetector.cpp; sourceTree = "<group>"; };
+		9B477EE01A982EC9009C9ADD /* ObjectDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectDetector.h; sourceTree = "<group>"; };
+		9B477EE11A982EC9009C9ADD /* ObjectDetector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObjectDetector.cpp; sourceTree = "<group>"; };
 		9BCB027A1A9149C200325218 /* ZeroGraph.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZeroGraph.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BCB027E1A9149C200325218 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9BCB027F1A9149C200325218 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -111,8 +111,8 @@
 				9B477EDC1A981C2C009C9ADD /* VideoSource.mm */,
 				9B477EDF1A982EC9009C9ADD /* UIImage+OpenCV.h */,
 				9B477EDE1A982EC9009C9ADD /* UIImage+OpenCV.mm */,
-				9B477EE01A982EC9009C9ADD /* PatternDetector.h */,
-				9B477EE11A982EC9009C9ADD /* PatternDetector.cpp */,
+				9B477EE01A982EC9009C9ADD /* ObjectDetector.h */,
+				9B477EE11A982EC9009C9ADD /* ObjectDetector.cpp */,
 			);
 			path = ZeroGraph;
 			sourceTree = "<group>";
@@ -301,7 +301,7 @@
 			files = (
 				9BCB02861A9149C200325218 /* ViewController.mm in Sources */,
 				9BCB02831A9149C200325218 /* AppDelegate.m in Sources */,
-				9B477EE31A982EC9009C9ADD /* PatternDetector.cpp in Sources */,
+				9B477EE31A982EC9009C9ADD /* ObjectDetector.cpp in Sources */,
 				9B477EDD1A981C2C009C9ADD /* VideoSource.mm in Sources */,
 				9BCB02801A9149C200325218 /* main.m in Sources */,
 				9B477EE21A982EC9009C9ADD /* UIImage+OpenCV.mm in Sources */,

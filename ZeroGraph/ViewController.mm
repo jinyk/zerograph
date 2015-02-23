@@ -8,14 +8,14 @@
 
 #include <opencv2/opencv.hpp>
 #import "ViewController.h"
-#import "PatternDetector.h"
+#import "ObjectDetector.h"
 #import "UIImage+OpenCV.h"
 
 @interface ViewController () <VideoSourceDelegate>
 
 @property (nonatomic, strong) VideoSource *videoSource;
-@property (nonatomic, strong) NSTimer *m_trackingTimer;
-@property (nonatomic) PatternDetector *m_detector;
+@property (nonatomic, strong) NSTimer *trackingTimer;
+@property (nonatomic) ObjectDetector *objectDetector;
 
 @end
 
@@ -26,61 +26,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.videoSource = [[VideoSource alloc] init];
-    self.videoSource.delegate = self;
-    [self.videoSource startWithDevicePosition:AVCaptureDevicePositionBack];
+    self.videoSource = [[VideoSource alloc] initWithDelegate:self];
 
-    UIImage *trackerImage = [UIImage imageNamed:@"target"];
-    self.m_detector = new PatternDetector([trackerImage toCVMat]);
-
-    self.m_trackingTimer = [NSTimer scheduledTimerWithTimeInterval:1.0f
-                                                            target:self
-                                                          selector:@selector(updateTracking:)
-                                                          userInfo:nil
-                                                           repeats:YES];
+    self.objectDetector = new ObjectDetector();
 }
 
 #pragma mark - VideoSourceDelegate
 
-- (void)frameReady:(VideoFrame)frame {
-    __weak typeof(self) _weakSelf = self;
-    dispatch_sync( dispatch_get_main_queue(), ^{
-        // Construct CGContextRef from VideoFrame
-        CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-        CGContextRef newContext = CGBitmapContextCreate(frame.data,
-                                                        frame.width,
-                                                        frame.height,
-                                                        8,
-                                                        frame.stride,
-                                                        colorSpace,
-                                                        kCGBitmapByteOrder32Little |
-                                                        kCGImageAlphaPremultipliedFirst);
-
-        // Construct CGImageRef from CGContextRef
-        CGImageRef newImage = CGBitmapContextCreateImage(newContext);
-        CGContextRelease(newContext);
-        CGColorSpaceRelease(colorSpace);
-
-        // Construct UIImage from CGImageRef
-        UIImage *image = [UIImage imageWithCGImage:newImage];
-        CGImageRelease(newImage);
-        [[_weakSelf backgroundImageView] setImage:image];
-    });
-
-    self.m_detector->scanFrame(frame);
-}
-
-#pragma mark - Private
-
-- (void)updateTracking:(NSTimer *)timer {
-    self.edgeImageView.image = [UIImage fromCVMat:self.m_detector->edgeImage()];
-    self.matchValueLabel.text = [NSString stringWithFormat:@"match value: %f", self.m_detector->matchValue()];
-    if (self.m_detector->isTracking()) {
-        self.matchValueLabel.textColor = [UIColor redColor];
-    } else {
-        self.matchValueLabel.textColor = [UIColor yellowColor];
-    }
-    
+- (void)captureReady:(UIImage *)image andFrame:(VideoFrame)frame {
+    self.backgroundImageView.image = image;
+    self.edgeImageView.image = [UIImage fromCVMat:self.objectDetector->getEdgeImage(frame)];
 }
 
 @end
